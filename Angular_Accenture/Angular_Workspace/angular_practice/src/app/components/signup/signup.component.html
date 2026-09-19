@@ -1,0 +1,73 @@
+<h1>Signup Form - Model Driven Form</h1>
+<hr />
+
+<form [formGroup]="employee_data" (ngSubmit)="saveCustomer()">
+    <div>
+        <div>Enter Employee Name</div>
+        <div>
+            <input type="Enter Name" formControlName="username" />
+            <span *ngIf="
+          employee_data.get('username').touched &&
+          employee_data.get('username').invalid
+        ">
+                <span style="color: red" *ngIf="employee_data.get('username').hasError('required')">
+                    * Employee Name is mandatory!!
+                </span>
+                <span style="color: red" *ngIf="employee_data.get('username').hasError('minlength')">
+                    * Employee Name should be greater than 8 characters!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <div>Enter Employee Password</div>
+        <div>
+            <input type="Enter Password" formControlName="password" />
+            <span *ngIf="employee_data.get('password').touched && employee_data.get('password').invalid">
+                <span style="color: red;" *ngIf="employee_data.get('password').hasError('required')">
+                    * Employee Password is mandatory!!
+                </span>
+                <span style="color: red;" *ngIf="employee_data.get('password').hasError('minlength')">
+                    * Employee Password should be greater than 8 characters!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <div>Enter Employee City</div>
+        <div>
+            <input type="Enter City" formControlName="city" />
+            <span *ngIf="employee_data.get('city').touched && employee_data.get('city').invalid">
+                <span style="color: red;" *ngIf="employee_data.get('city').hasError('required')">
+                    * Employee City is mandatory!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <div>Enter Employee Contact</div>
+        <div>
+            <input type="Enter Contact" formControlName="contact" />
+            <span *ngIf="employee_data.get('contact').touched && employee_data.get('contact').invalid">
+                <span style="color: red;" *ngIf="employee_data.get('contact').hasError('required')">
+                    * Employee Contact is mandatory!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <button appButtonDecoration [disabled]="employee_data.invalid">Save</button>
+    </div>
+</form>

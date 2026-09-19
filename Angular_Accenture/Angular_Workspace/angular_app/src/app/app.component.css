@@ -1,0 +1,22 @@
+h1{
+ color: blue;
+}
+
+nav
+{
+ padding: 10px;
+ background-color: aquamarine;
+}
+
+a
+{
+ text-decoration: none;
+ padding: 10px;
+}
+
+.activeroute
+{
+ font-size: 25px;
+ font-weight: bolder;
+ color: red;
+}

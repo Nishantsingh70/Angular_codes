@@ -1,0 +1,40 @@
+<h1>Registration Form - Model Driven Form</h1>
+<br />
+
+<form [formGroup]="customer_data" (ngSubmit)="saveCustomer()">
+    <div>
+        <div> Enter Customer ID</div>
+        <div><input formControlName="cid">
+            <span style="color: red;" *ngIf="customer_data.get('cid').invalid && customer_data.get('cid').touched">
+                * Customer ID is mandatory.
+            </span>
+        </div>
+    </div>
+    <div>
+        <div> Enter Customer Name</div>
+        <div><input formControlName="cname">
+            <span *ngIf="customer_data.get('cname').touched && customer_data.get('cname').invalid">
+                <span style="color: red;" *ngIf="customer_data.get('cname').errors['required']">
+                    * Customer Name is mandatory.
+                </span>
+                <span style="color: red;" *ngIf="customer_data.get('cname').hasError('minlength')">
+                    * Customer Name should be greater than 3 characters long.
+                </span>
+            </span>
+        </div>
+    </div>
+    <div formGroupName="address">
+        <div>
+            <div> Enter Customer City</div>
+            <div><input formControlName="ccity"></div>
+        </div>
+    </div>
+    <div>
+        <div> Enter Customer Country</div>
+        <div><input name="ccountry" ngModel #ccountryref="ngModel"></div>
+    </div>
+
+    <div>
+        <button [disabled]="customer_data.invalid">Save</button>
+    </div>
+</form>

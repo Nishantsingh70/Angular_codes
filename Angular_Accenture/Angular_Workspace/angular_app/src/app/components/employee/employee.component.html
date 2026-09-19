@@ -1,0 +1,128 @@
+<div style="background-color: blueviolet">
+    <h1 style="color: antiquewhite">Employee Component</h1>
+    <button (click)="sendData()">Send Data from Parent to Child</button>
+    <app-emp-details [emp_Name]="empName" (my_event)="receiveData($event)"></app-emp-details>
+    <hr />
+    <h3>Received Employee : {{ employee_Name }}</h3>
+</div>
+
+<br />
+<br />
+<hr />
+
+<table border="1">
+    <caption>Employee Details</caption>
+    <thead>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Contact</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ employees[0].eid }}</td>
+            <td>{{ employees[0].ename }}</td>
+            <td>{{ employees[0].contact }}</td>
+        </tr>
+        <tr>
+            <td>{{ employees[1].eid }}</td>
+            <td>{{ employees[1].ename }}</td>
+            <td>{{ employees[1].contact }}</td>
+        </tr>
+        <tr>
+            <td>{{ employees[2].eid }}</td>
+            <td>{{ employees[2].ename }}</td>
+            <td>{{ employees[2].contact }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr />
+<hr />
+
+<button (click)="changeContactStatus()">Show/Hide Contacts</button>
+<table border="1">
+    <caption>Employee Details</caption>
+    <thead>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th *ngIf="isContactVisible">Employee Contact</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees;">
+            <td>{{employee.eid}}</td>
+            <td>{{employee.ename}}</td>
+            <td *ngIf="isContactVisible">{{employee.contact}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<hr />
+<hr />
+
+
+<ol>
+    <li *ngFor="let city of cities">{{ city }}</li>
+</ol>
+
+<hr />
+<hr />
+
+<div *ngIf="age>18; else elseBlock">
+    <h2>Employee is eligible to vote</h2>
+</div>
+<ng-template #elseBlock>
+    <h2>Employee is not eligible to vote</h2>
+</ng-template>
+
+<hr />
+<hr />
+
+<select [(ngModel)]="citySelected">
+    <option *ngFor="let city of cities">{{ city }}</option>
+</select>
+
+<h3>{{ citySelected }}</h3>
+
+<div [ngSwitch]="citySelected">
+    <div *ngSwitchCase="'Mumbai'">
+        <h1>Gateway of India</h1>
+        <img src='{{"./assets/GatewayOfIndia.jpg"}}' [width]="img_width" [height]="img_height">
+    </div>
+    <div *ngSwitchCase="'Delhi'">
+        <h1>India Gate</h1>
+        <img src='{{"./assets/Indiagate.jpg"}}' [width]="img_width" [height]="img_height">
+    </div>
+        <div *ngSwitchCase="'Chennai'">
+        <h1>Temple in Chennai</h1>
+        <img src='{{"./assets/chennaiTemple.jpg"}}' [width]="img_width" [height]="img_height">
+    </div>
+</div>
+
+<hr />
+<hr />
+
+<h2>=========================== Attribute Directive - ngClass and ngStyle ==================</h2>
+
+<caption [ngClass]="myclasses">Employee Details</caption>
+
+<h3 [ngClass]="myclasses">Employee Details</h3>
+
+<hr />
+<hr />
+
+<ol>
+ <li *ngFor="let city of cities" [ngStyle]="{'background-color':city.length>5 ? 'green' : 'blue'}">{{city}}</li>
+</ol>
+
+<hr />
+<hr />
+
+<h2>Service example</h2>
+
+<h3>{{ current_date }}</h3>
+
+<hr />
+<hr />
+
+

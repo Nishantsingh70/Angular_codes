@@ -1,0 +1,30 @@
+<h2>Home Page</h2>
+<button (click)="goToProfile()">Go To Profile Page</button>
+<br />
+
+<!-- Sending the data from one page to another by query parameters -->
+<a routerLink="/Profile" [queryParams]="{id:1, name: 'Nishant', email: 'nishant@gmail.com'}">Go To Nishant's Profile</a>
+<br />
+
+<a routerLink="/Profile" [queryParams]="{id:2, name: 'Abhi', email: 'abhi@gmail.com'}">Go To Abhi's Profile</a>
+<br />
+
+<a routerLink="/Profile" [queryParams]="{id:userDetail().id, name: userDetail().name, email: userDetail().email}">Go To Abhi's Profile</a>
+<br />
+
+<button (click)="profileClicked()">Go To Ram's Profile</button>
+<br />
+
+<hr />
+
+<!-- Sending the data from one page to another by route parameters -->
+<a routerLink="/About/anil">Go To About Page</a>
+<br />
+<a [routerLink]="['/About', 'sam']">Go To About Page - Sam</a>
+<br />
+<a [routerLink]="['/About', userDetail().name]">Go To About Page - Ram</a>
+<br />
+<a [routerLink]="['/About', userDetail().name, 40]">Go To About Page - Ram 2.0</a>
+
+<br />
+<button (click)="goToAbout()">Go to About page</button>

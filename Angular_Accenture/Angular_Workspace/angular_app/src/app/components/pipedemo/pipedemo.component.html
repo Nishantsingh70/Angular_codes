@@ -1,0 +1,45 @@
+<h1>Pipe Demo Component</h1>
+
+<br />
+<br />
+
+<h2> ========================= Date Pipe ============================= </h2>
+
+<h3>{{ today | date: 'short' }}</h3>
+<h3>{{ today | date: 'medium' }}</h3>
+<h3>{{ today | date: 'full' }}</h3>
+
+
+<br />
+<br />
+
+<h2> ========================= uppercase, titlecase, currency and slice Pipe ============================= </h2>
+
+<table border="1" cellPadding="1">
+    <caption>Customers Detail</caption>
+    <thead>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Customer Contact</th>
+        <th>Customer Gender</th>
+        <th>Customer Salary</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cust of customers">
+            <td>{{cust.cid}}</td>
+            <td>{{cust.cname | uppercase | title: cust.gender }}</td>
+            <td>{{cust.ccontact}}</td>
+            <!-- <td>{{cust.gender }}</td> -->
+            <td>{{cust.gender | slice: 0 : 1}}</td>
+            <td>{{cust.salary | currency: 'INR'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<br />
+
+<h2> ========================= json Pipe ============================= </h2>
+
+<h3>{{ customers }}</h3>
+<h3>{{ customers | json }}</h3>

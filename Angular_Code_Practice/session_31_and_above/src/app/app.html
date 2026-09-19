@@ -1,0 +1,143 @@
+<h1>Session 31 - Pipe to transform the data in DOM (upperCase, titleCase, currency, date and json)</h1>
+<br />
+
+<h3>{{title2() | uppercase }}</h3>
+<h3>{{title2() | titlecase }}</h3>
+<h3>{{'abhi singh' | uppercase }}</h3>
+
+<br />
+
+<h3>{{ amount() | currency: 'USD' }}</h3>
+<h3>{{ amount() | currency: 'usd' }}</h3>  <!-- It will not work-->
+<h3>{{ amount() | currency: 'INR' }}</h3>
+<h3>{{ amount() | currency: 'inr' }}</h3>  <!-- It will not work-->
+
+<br />
+
+<h3>{{ date() | date}}</h3>
+<h3>{{ date() | date: 'dd'}}</h3>
+<h3>{{ date() | date: 'MM'}}</h3>
+<h3>{{ date() | date: 'YY'}}</h3>
+<h3>{{ date() | date: 'YYYY'}}</h3>
+<h3>{{ date() | date: 'full'}}</h3>
+<h3>{{ date() | date: 'short'}}</h3>
+
+<br />
+
+<h3>{{userDetail() | json}}</h3>
+
+<br />
+
+<h3>{{name() | uppercase}}</h3>
+<input type="text" placeholder="Enter name" [value]="name()" (input)="name.set($event.target.value)">
+
+<hr />
+<hr />
+
+<h1>Session 32 - Custom Pipe to transform the data in DOM (Trim text and currency converter with & without parameters)</h1>
+<br />
+
+<h3> {{ 'Hello World' }}</h3>
+<h3> {{ 'Hello World' | trimText}}</h3>
+<h3> {{ 'Hello World' | trimText: 3}}</h3>
+<h3> {{ 'Hello World' | trimText: 3 : 6}}</h3>
+
+<br />
+
+<h3> {{  sentence() }}</h3>
+<h3> trimText pipe without any parameters : {{  sentence() | trimText | uppercase }}</h3>
+<h3> trimText pipe with 1 parameter : {{  sentence() | trimText: 3 | titlecase }}</h3>
+<h3> trimText pipe with 2 parameters : {{  sentence() | trimText: 3 : 6 | uppercase }}</h3>
+
+
+<br />
+
+<h3>{{ price() }}</h3>
+<h3> currencyConverter pipe without any parameter : {{ price() | currencyConverter | currency: 'INR'}}</h3>
+<h3> currencyConverter pipe with 1 parameter : {{ price() | currencyConverter: 80 | currency: 'USD'}}</h3>
+<h3> currencyConverter pipe with 1 parameter : {{ price() | currencyConverter: 100 | currency: 'INR' }}</h3>
+
+
+<hr />
+<hr />
+
+<h1>Session 33 - Router, Router Outlet, Router Link, multiple components</h1>
+<br />
+
+<a href="/About">About Href</a>   <!-- Href load the page again and again but routerLink will not load the page. -->
+<div>
+  <a routerLink="/">Home</a>
+  <a routerLink="/About">About</a>
+  <a routerLink="/Contact">Contact</a>
+  <a routerLink="/Profile">Profile</a>
+  <a routerLink="/Login">Login</a>
+  <a routerLink="/Logout">Logout</a>
+</div>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 34 - Router, Router Outlet, Router Link, Create Header component, apply active class</h1>
+<br />
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 35 - 404 Error page component, wildcard route, button navigate, router navigate in ts file</h1>
+<br />
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 36 - Route, Activated Route, Query Parameters, subscribe method, Home and Profile components</h1>
+<br />
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 37 - Route parameters, Route, Activated Route, subscribe method, Home and About components</h1>
+<br />
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 38 - Dynamic Routing, Route, Activated Route, subscribe method, Users and UserDetails component</h1>
+<br />
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<hr />
+<hr />
+
+<h1>Session 39 - Nested routing, child routing, default child routing, user1, profile1, home1 and setting1 component</h1>
+<br />
+
+<!-- <app-header></app-header>
+<router-outlet></router-outlet> -->
+
+<nav>
+  <a routerLink="/Home1">Home1</a>
+  <a routerLink="/User1">User1</a>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,96 @@
+=============================== Day 1 - 16th September 2026 ============================
+
+NPM (Node Package Manager): npmjs.com
+
+Dependency / Package : collection of classes
+
+Feature of TypeScript :
+
+1) Use TypeScript to develop Large Application
+ 2) Clear & Readable code
+ 3) Concise code
+ 4) Early Error Detection
+ 5) Type safety
+
+create the component:
+ 1) manually
+ 2) angular cli command : ng g c component_name
+
+How to render one component inside another component.
+
+=============================== Day 2 - 17th September 2026 ============================
+
+Data Binding 
+ 1. String Interpolation : One way DB ; Component to view {{data}}
+ 2. Property Binding : Binds component property to HTML element Property ; Component to view [HTMLProperty] ="property"
+ 3. Event Binding : Binds event from view to a method of the component ; view to component (event) = "method"
+ 4. Two way Data Binding : Bidirectional ; (formsModule) ----> ngModel (directive) : [(ngModel)] = "Property"
+ 5. class Binding
+ 6. Style Binding
+
+ Component to component Interaction :
+  1) Parent to Child : 
+             Property Binding
+             @Input
+
+  2) Child to Parent
+             Event Binding
+             @Output
+			 
+ Angular Building Blocks
+  
+  1) Component
+  2) Directive : Structural Directive (*ngIf, *ngFor, *ngSwitchCase) , <ng-template>
+                 Attribute Directive (ngClass,ngStyle) , 
+                 Component
+                 Custom Directive : ng g d directiveName
+ 3) Service : 
+ 4) Route
+
+ Dependency Injection
+  constructor(private dep : ClassName)
+  {
+  
+  }
+  
+ ElementRef
+ @HostBinding
+ @HostListener
+ 
+ 
+=============================== Day 3 - 17th September 2026 ============================
+
+create Module: ng g m book --route book --module app.module
+
+1) Retrieve data from external API / external json file (HttpClientModule : HttpClient -----> get,post,put,.....)
+
+2) Routing : routerLink, routerLinkActive, router-outlet
+
+3) Form Handling : 
+        Template Driven --> Simple Form 
+                            validation on template
+        
+		form directives : ngModel, ngModelgroup, ngForm
+                          FormsModule
+						  
+        Model Driven --> Complex Form
+                         Validation on class
+                         formControlname
+                         ReactiveFormsModule
+
+          FormGroup ----------> Top level instance
+          FormControl ----------> instance associated with a form control / form element
+
+          Form Validation : touched, valid, pristine
+                            untouched, invalid, dirty
+
+ 4) Pipes : {{ data | pipeName }} , Parameterised {{ data | pipeName : paramName }} , Non Parameterised {{ data | pipeName }}
+    Built in Pipes: uppercase, titlecase, date, currency, slice, json,.........
+    Custom Pipe : ng g p CustomPipeName
+    Feature / Custom Module (Lazy Loading)
+
+    localhost:4200 : Path
+    localhost:4200/employees : Path
+    localhost:4200/employees/101 : Path
+
+       ActivatedRoute (service) -----------> To retrieve URL parameter

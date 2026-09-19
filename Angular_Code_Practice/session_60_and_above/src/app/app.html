@@ -1,0 +1,65 @@
+<h1>Material UI</h1>
+
+<button matButton>Basic</button>
+<button matButton="elevated">Basic</button>
+<button matButton="filled">Basic</button>
+<a matButton="filled" href="https://www.google.com/" target="_blank">Link</a>
+<button matButton="elevated" matBadge="8" matBadgePosition="after">
+  Action
+</button>
+
+<br />
+<br />
+
+<div style="width: 145px;" matBadge="1" matBadgeSize="small" class="demo-section">Text with small badge</div>
+<br />
+<div style="width: 145px;" matBadge="1" matBadgeSize="large" class="demo-section">Text with large badge</div>
+
+<br />
+
+<div style="width: 500px; height: 500px; margin: 40px; margin-bottom: 100px; ">
+  <mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton>LIKE</button>
+    <button matButton>SHARE</button>
+  </mat-card-actions>
+  </mat-card>
+
+
+
+</div>
+
+<br />
+<hr />
+<hr />
+<br />
+
+<h3> Session - 61 Create production build, difference between development build vs production build</h3>
+
+<!--
+   step1) ng build
+   step2) npm install -g http-server
+   step3) cd dist/session_60_and_above/browser
+   step4) http-server -p 7000
+-->
+
+<h3>Effect keyword/function use case in Angular project - Interview question</h3>
+
+<div class="margin: 20px;">
+    <h4 class="margin: 10px">{{count()}}</h4>
+    <br />
+    <button (click)="count.update((prev) => prev + 1)">Click</button>
+</div>

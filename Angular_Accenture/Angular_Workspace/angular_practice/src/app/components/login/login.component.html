@@ -1,0 +1,42 @@
+<h1>Login Form - Template Driven Form</h1>
+<hr />
+
+<form #formdata="ngForm" (ngSubmit)="loginCustomer(formdata.value)">
+    <div>
+        <div>Enter Employee Name</div>
+        <div>
+            <input type="Enter Name" name="username" ngModel #enameRef="ngModel" required minlength="8" />
+            <span *ngIf="enameRef.invalid && enameRef.touched">
+                <span style="color: red" *ngIf="enameRef.hasError('required')">
+                    * Employee Name is mandatory!!
+                </span>
+                <span style="color: red" *ngIf="enameRef.hasError('minlength')">
+                    * Employee Name should be greater than 8 characters!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <div>Enter Employee Password</div>
+        <div>
+            <input type="Enter Password" name="password" ngModel #epasswordRef="ngModel" required minlength="8" />
+            <span *ngIf="epasswordRef.invalid && epasswordRef.touched">
+                <span style="color: red" *ngIf="epasswordRef.hasError('required')">
+                    * Employee Password is mandatory!!
+                </span>
+                <span style="color: red" *ngIf="epasswordRef.hasError('minlength')">
+                    * Employee Password should be greater than 8 characters!!
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <button appButtonDecoration [disabled]="formdata.invalid">Save</button>
+    </div>
+</form>

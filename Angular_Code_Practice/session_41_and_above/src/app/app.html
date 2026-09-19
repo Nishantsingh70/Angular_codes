@@ -1,0 +1,298 @@
+<!-- ========== Session 41 - Dynamic component loading with ngOnInit and button click, container, user-details component ======== -->
+
+<h1>Session 41 - Dynamic component loading with ngOnInit and button click, container, user-details component</h1>
+
+<br />
+
+<!-- <app-user-details></app-user-details>
+<app-user-details></app-user-details>
+<app-user-details></app-user-details> -->
+
+<button (click)="loadAllComponents()">Load Container</button>
+
+<ng-container #userDetails></ng-container>
+
+<hr />
+<hr />
+
+<!-- ========== Session 41 - Form and its types, Reactive Form, Signal Reactive Form and Template Driven Form ======== -->
+
+<h1>Session 41 - Form and its types, Reactive Form, Signal Reactive Form and Template Driven Form</h1>
+
+<br />
+
+<p>Reactive Form - Better performance, better control on validations in ts file & used in big applications <br />
+  Signal Form - We use signal with Reactive forms <br />
+  Template Driven Form - Easy to implement, less control on ts file & used in small applications </p>
+
+<hr />
+<hr />
+
+<!-- ========== Session 42 - Reactive Form, form control, binding with formControl, get and set value with form control ======== -->
+
+<h1>Session 42 - Reactive Form, form control, binding with formControl, get and set value with form control</h1>
+
+<br />
+
+@if(this.nameSignal() && this.emailSignal() && this.passwordSignal()){
+    <h3> Name : {{ nameSignal() }}</h3>
+    <h3> Email : {{ emailSignal() }}</h3>
+    <h3> Password : {{ passwordSignal() }}</h3>
+}
+<br />
+
+
+<input type="text" placeholder="Enter name" [formControl]="name" />
+<br />
+<br />
+<input type="text" placeholder="Enter email" [formControl]="email" />
+<br />
+<br />
+<input type="password" placeholder="Enter password" [formControl]="password" />
+<br />
+<br />
+<button (click)="login()">Login User</button>
+<button (click)="reset()">Reset User</button>
+
+<hr />
+<hr />
+
+<!-- ===== Session 43 - Reactive Form, form group, form control, binding with form group & formControlName, get and set value with form control ======== -->
+
+<h1>Session 43 - Reactive Form, form group, form control, binding with form group & formControlName, get and set value with form control</h1>
+
+<br />
+
+@if(this.name1Signal() && this.email1Signal() && this.password1Signal()){
+    <h3> Name : {{ name1Signal() }}</h3>
+    <h3> Email : {{ email1Signal() }}</h3>
+    <h3> Password : {{ password1Signal() }}</h3>
+}
+
+<br />
+
+<form method="post" [formGroup]="loginForm" (ngSubmit)="addUser()">
+  <input type="text" placeholder="Enter name" formControlName="name1" />
+  <br />
+  <br />
+  <input type="text" placeholder="Enter email" formControlName="email1" />
+  <br />
+  <br />
+  <input type="password" placeholder="Enter password" formControlName="password1" />
+  <br />
+  <br />
+  <button [disabled]="loginForm.invalid">Login</button>
+  <button (click)="reset1()">Reset</button>
+</form>
+
+
+<hr />
+<hr />
+
+<!-- ==== Session 43.2 - Reactive Form, form group, form control, binding with form group & formControlName, apply validation on fields ======== -->
+
+<h1>Session 43.2 - Reactive Form, form group, form control, binding with form group & formControlName, apply validation on fields</h1>
+
+<br />
+
+@if(this.name2Signal() && this.email2Signal() && this.password2Signal()){
+    <h3> Name : {{ name2Signal() }}</h3>
+    <h3> Email : {{ email2Signal() }}</h3>
+    <h3> Password : {{ password2Signal() }}</h3>
+}
+
+<br />
+
+<form method="post" [formGroup]="login2Form" (ngSubmit)="addUser2()">
+  <input type="text" placeholder="Enter name" formControlName="name2" />
+
+  @if(uname && uname.hasError('required') && uname.touched){
+    <span class="error">Name is required</span>
+  }
+
+  @if(uname?.hasError('minlength')){
+    <span class="error">Name should be min 3 characters</span>
+  }
+
+  @if(uname?.hasError('maxlength')){
+    <span class="error">Name should be max 20 characters</span>
+  }
+
+  <br />
+  <br />
+  <input type="text" placeholder="Enter email" formControlName="email2" />
+    
+  @if(uemail?.hasError('required') && uemail?.touched){
+    <span class="error">Email is required</span>
+  }
+
+  @if(uemail?.hasError('email')){
+    <span class="error">Email syntax is not correct</span>
+  }
+
+  <br />
+  <br />
+  <input type="password" placeholder="Enter password" formControlName="password2" />
+
+  @if(upassword?.hasError('required') && upassword?.touched){
+    <span class="error">Password is required</span>
+  }
+
+  @if(upassword?.hasError('minlength')){
+    <span class="error">Password should be min 3 characters</span>
+  }
+
+  @if(upassword?.hasError('maxlength')){
+    <span class="error">Password should be max 20 characters</span>
+  }
+
+  <br />
+  <br />
+  <button [disabled]="login2Form.invalid">Login</button>
+  <button (click)="reset2()">Reset</button>
+</form>
+
+
+<hr />
+<hr />
+
+<!-- ==== Session 44 - Reactive Form with signals, field binding, get and set methods ======== -->
+
+<h1> Session 44 - Reactive Form with signals, field binding, get and set methods</h1>
+
+<br />
+
+@if(this.name3Signal() && this.email3Signal() && this.password3Signal()){
+    <h3> Name : {{ name3Signal() }}</h3>
+    <h3> Email : {{ email3Signal() }}</h3>
+    <h3> Password : {{ password3Signal() }}</h3>
+}
+
+<br />
+
+  <input type="text" placeholder="Enter name" [formField]="login3Form.name3" />
+  <br />
+  <br />  
+  <input type="text" placeholder="Enter email" [formField]="login3Form.email3" />
+  <br />
+  <br />
+  <input type="password" placeholder="Enter password" [formField]="login3Form.password3" />
+  <br />
+  <br />
+  <button (click)="addUser3()">Login</button>
+  <button (click)="reset3()">Reset</button>
+
+<br />
+  
+<hr />
+<hr />
+
+<!-- ==== Session 45 - Reactive Form with signals, field binding, get and set methods, apply validation ======== -->
+
+<h1> Session 45 - Reactive Form with signals, field binding, get and set methods, apply validation</h1>
+
+<br />
+
+@if(this.name4Signal() && this.email4Signal() && this.password4Signal()){
+    <h3> Name : {{ name4Signal() }}</h3>
+    <h3> Email : {{ email4Signal() }}</h3>
+    <h3> Password : {{ password4Signal() }}</h3>
+}
+
+<br />
+
+<input type="text" placeholder="Enter name" [formField]="login4Form.name4" />
+<br />
+<br />  
+
+@if(login4Form.name4().touched() && login4Form.name4().invalid())
+{
+  <ul>
+     @for(error of login4Form.name4().errors(); track error)
+     {
+         <li>{{error.message}}</li>
+     }
+  </ul>
+
+}
+<br />
+<br/>
+<input type="text" placeholder="Enter email" [formField]="login4Form.email4" />
+<br />
+<br />  
+
+@if(login4Form.email4().touched() && login4Form.email4().invalid())
+{
+  <ul>
+     @for(error of login4Form.email4().errors(); track error)
+     {
+         <li>{{error.message}}</li>
+     }
+  </ul>
+
+}
+<br />
+<br />
+<input type="password" placeholder="Enter password" [formField]="login4Form.password4" />
+<br />
+<br />  
+
+@if(login4Form.password4().touched() && login4Form.password4().invalid())
+{
+  <ul>
+     @for(error of login4Form.password4().errors(); track error)
+     {
+         <li>{{error.message}}</li>
+     }
+  </ul>
+
+}
+  
+<br />
+<br />
+<button (click)="addUser4()">Login</button>
+<button (click)="reset4()">Reset</button>
+
+
+<hr />
+<hr />
+
+<!-- ==== Session 46 - Template Driven form, ngForm, ngSubmit ======== -->
+
+<h1> Session 46 - Template Driven form, ngForm, ngSubmit</h1>
+
+<br />
+
+<ul>
+  <li> Email : {{ userDetail().email }}</li>
+  <li> Password : {{ userDetail().password }}</li>
+  <li> Range : {{ userDetail().range }}</li>
+  <li> Select : {{ userDetail().gender }}</li>
+  <li> Textarea : {{ userDetail().userBio }}</li>
+</ul>
+
+<form #userForm="ngForm" (ngSubmit)="adduser5(userForm.value)">
+  <input type="text" placeholder="Enter email" name="email" ngModel>
+  <br />
+  <br />
+  <input type="password" placeholder="Enter password" name="password" ngModel>
+  <br />
+  <br />
+  <input type="range" name="range" ngModel>
+  <br />
+  <br />
+  <select name="gender" ngModel>
+    <option value="">Select Gender</option>
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+  </select>
+  <br />
+  <br />
+  <br />
+  <textarea name="userBio" ngModel>
+
+  </textarea>
+  <br />
+  <br />
+  <button>Click</button>
+</form>

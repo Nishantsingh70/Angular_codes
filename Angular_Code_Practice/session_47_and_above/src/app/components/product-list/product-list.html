@@ -1,0 +1,11 @@
+<h2>Session 51 - Dynamically create pages, Dynamic route to API data, Product list and product detail component, products service</h2>
+<h3>Product List - Dummy json Products Get API</h3>
+
+<ul>
+  @for(product of productList(); track product.id){
+    <ul class="product-ul">
+        <a [routerLink]="['/detail', product.id]">{{product.title}}</a>
+        <!-- <a [routerLink]="'/detail/' + product.id">{{product.title}}</a> -->
+    </ul>
+  }
+</ul>

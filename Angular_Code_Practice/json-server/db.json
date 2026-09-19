@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "title": "Lion",
+      "views": 238,
+      "id": "2"
+    },
+    {
+      "title": "Tiger",
+      "views": 250,
+      "id": "Mgpv_gSKpEI"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": null
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "name": "Nishant Singh",
+      "age": 45,
+      "id": "vzAwv1Ro09A"
+    },
+    {
+      "name": "Abhi",
+      "age": 31,
+      "id": "kGdoKIkjpyg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

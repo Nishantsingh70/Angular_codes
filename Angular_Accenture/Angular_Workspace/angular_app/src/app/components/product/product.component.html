@@ -1,0 +1,139 @@
+<h1>Product Component created manually</h1>
+
+<!-- ==================  String Interpolation ========================= -->
+<h2>================== String Interpolation =========================</h2>
+
+<h3>Product ID : {{ productId }}</h3>
+
+<h3>Product Color : {{ productConfig.color }}</h3>
+<h3 style="color: red">Product Processor : {{ productConfig.processor }}</h3>
+<h3 [style]="{ color: 'aqua', 'font-style': 'italic' }">
+  Product Models : {{ productModels }}
+</h3>
+
+<h3>Product Model - 1 : {{ productModels[0] }}</h3>
+<h3>Product Model - 2 : {{ productModels[1] }}</h3>
+<h3>Product Model - 3 : {{ productModels[2] }}</h3>
+
+<h3>{{ date }}</h3>
+<h3>{{ date2 }}</h3>
+
+<h3><img src="{{ '/assets/mobile.jpg' }}" width="200px;" height="200px;" /></h3>
+<h3><img src="/assets/{{ img_src }}" width="230px;" height="230px;" /></h3>
+
+<!-- ===================== for this you need to change in assets in angular.json file ======================= -->
+<h3><img src="/app/assets/{{ img_src }}" width="250px;" height="250px;" /></h3>
+<h3>
+  <img
+    src="/app/components/assets/{{ img_src }}"
+    width="250px;"
+    height="250px;"
+  />
+</h3>
+
+<h3>Price : Rs {{ getMobileCost() }} /-</h3>
+<h3>{{ 100 + 100 }}</h3>
+
+<hr />
+<hr />
+
+<!-- ==================  property binding ========================= -->
+<h2>================== property binding =========================</h2>
+
+<h3>
+  <img [src]="'/assets/mobile.jpg'" [width]="img_Width" [height]="img_Height" />
+</h3>
+
+<br />
+
+<h3>
+  <img [src]="'/assets/mobile.jpg'" width="300px;" height="300px;" />
+</h3>
+
+<input type="text" [value]="input_text" />
+<hr />
+<hr />
+
+<!--  =========== No need of using value or placeholder because it give preference to ngModel only.  ============== -->
+<!-- ==================  property binding and event binding ========================= -->
+
+<h2>
+  =========== No need of using value or placeholder because it give preference
+  to ngModel only. ============== <br />
+  ================== property binding and event binding
+  =========================
+</h2>
+
+<input
+  type="text"
+  [(ngModel)]="productName"
+  [value]="input_text"
+  placeholder="Enter Name"
+/>
+<h4>{{ productName }}</h4>
+
+<button [disabled]="isButtonDisabled" (click)="saveProduct()">Click</button>
+
+<hr />
+<hr />
+
+<!-- ==================  Class Based Binding ========================= -->
+<h2>================== Class Based Binding =========================</h2>
+
+<h3 [class.backColor]="changeBackColor">Product Name : {{ productName }}</h3>
+<button (click)="changeBackgroundColor()">Change Background Color</button>
+
+<h3>Product Available : {{ productAvailable }}</h3>
+<hr />
+
+<h3
+  [class.product_available]="productAvailable == true"
+  [class.product_not_available]="productAvailable == false"
+>
+  Product Available : {{ productAvailable }}
+</h3>
+
+<hr />
+<hr />
+
+<!-- ==================  Style Binding ========================= -->
+<h2>================== Style Binding =========================</h2>
+
+<h3 style="color: red">Product Processor : {{ productConfig.processor }}</h3>
+<h3 [style]="{ color: 'aqua', 'font-style': 'italic' }">
+  Product Models : {{ productModels }}
+</h3>
+
+<hr />
+<hr />
+
+<h2>
+  =========================== Attribute Directive - ngClass and ngStyle ==================
+</h2>
+
+<table border="1" cellpadding="1">
+  <thead>
+    <tr appHighlighter>
+      <!-- applying custom directive - appHighlighter -->
+      <th>Product Name</th>
+      <th>Product Cost</th>
+      <th>Product Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let product of products"
+      [ngStyle]="{
+        'background-color': product.productQuantity > 10 ? 'green' : 'red',
+      }"
+    >
+      <!-- //[ngClass]="product.productQuantity > 10 ? 'available-stock' : 'low-stock' "> -->
+      <td>{{ product.productName }}</td>
+      <td>{{ product.productCost }}</td>
+      <td>{{ product.productQuantity }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<hr />

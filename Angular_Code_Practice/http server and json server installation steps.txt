@@ -1,0 +1,14 @@
+Note: Install json server in the system.
+
+step1) npm install -g json-server
+step2) create db.json file
+step3) npx json-server db.json 
+
+
+
+Note: Install http-server in the system.
+   
+step1) ng build
+step2) npm install -g http-server
+step3) cd dist/session_60_and_above/browser
+step4) http-server -p 7000

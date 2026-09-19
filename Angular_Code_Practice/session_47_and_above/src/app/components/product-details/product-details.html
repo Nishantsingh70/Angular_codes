@@ -1,0 +1,10 @@
+<h2>Product details</h2>
+
+<img [src]="showData()?.thumbnail" >
+<ul>
+   <h3>Name : {{ showData()?.title }}</h3>
+   <h3>Description : {{ showData()?.description }}</h3>
+   <h3>Price : {{ showData()?.price }}</h3>
+   <h3>Rating : {{ showData()?.rating }}</h3>
+   <h3>Stock : {{ showData()?.stock }}</h3>
+</ul>

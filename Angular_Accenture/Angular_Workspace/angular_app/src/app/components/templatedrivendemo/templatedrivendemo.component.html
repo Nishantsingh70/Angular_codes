@@ -1,0 +1,38 @@
+<h1>Registration Form - Template Driven Form</h1>
+<br />
+
+<form #formdata="ngForm" (ngSubmit)="saveCustomer(formdata.value)">
+    <div>
+        <div> Enter Customer ID</div>
+        <div><input name="cid" ngModel #cidref="ngModel" required>
+            <span style="color: red;" *ngIf="cidref.touched && cidref.invalid">
+                * Customer ID is mandatory.
+            </span>
+        </div>
+    </div>
+    <div>
+        <div> Enter Customer Name</div>
+        <div><input name="cname" ngModel #cnameref="ngModel" required minlength="3">
+            <span style="color: red;" *ngIf="cnameref.touched && cidref.invalid">
+                <span style="color: red;" *ngIf="cnameref.hasError('required')">
+                    * Customer Name is mandatory.
+                </span>
+                <span style="color: red;" *ngIf="cnameref.hasError('minlength')">
+                    * Customer Name should be greater than 3 characters long.
+                </span>
+            </span>
+        </div>
+    </div>
+    <div>
+        <div> Enter Customer City</div>
+        <div><input name="ccity" ngModel #ccityref="ngModel"></div>
+    </div>
+    <div>
+        <div> Enter Customer Country</div>
+        <div><input name="ccountry" ngModel #ccountryref="ngModel"></div>
+    </div>
+
+    <div>
+        <button [disabled]="formdata.invalid">Save</button>
+    </div>
+</form>

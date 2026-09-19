@@ -1,0 +1,23 @@
+h1{
+ color: yellow;
+}
+
+.class1
+{
+ color: blue;
+ font-size: 18px;
+ font-weight: bolder;
+}
+
+.class2
+{
+ background-color: beige;
+ font-size: 18px;
+ font-weight: bolder;
+}
+
+.class3
+{
+ font-size: 22px;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+}

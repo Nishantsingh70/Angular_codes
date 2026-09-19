@@ -1,0 +1,19 @@
+{
+  "customers": [
+    {
+      "cid": 101,
+      "cname": "Sachin",
+      "ccontact": 12345
+    },
+    {
+      "cid": 102,
+      "cname": "Suresh",
+      "ccontact": 123445
+    },
+    {
+      "cid": 103,
+      "cname": "Manish",
+      "ccontact": 12225
+    }
+  ]
+}

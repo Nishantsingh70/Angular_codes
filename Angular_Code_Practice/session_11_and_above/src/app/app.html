@@ -1,0 +1,112 @@
+<h1>Session 11 - Property Binding</h1>
+<button disabled="{{btnDisable}}">Interpolation button</button>
+<button [disabled]="btnDisable">Property Binding button</button>
+<button (click)="toggleDisable()">Toggle Button</button>
+
+<br>
+<br>
+
+<input type="text" readonly="{{inputReadonly}}">
+<input type="text" [readonly]="inputReadonly">
+<button (click)="toggleReadonly()">Toggle Readonly</button>
+
+<br>
+<br>
+
+<img src="{{url}}" alt="">
+<img [src]="url" alt="">
+
+
+<hr>
+<hr>
+
+<h1>Session 12 - signals and Normal properties/variables</h1>
+<!--UI updates when normal property value changes. But TypeScript file cannot detect when the value changes.-->
+
+<p>{{data}}</p>
+<button (click)="updateData()">Update Data</button>
+
+<br>
+<p> Signal : {{count()}}</p>
+<button (click)="updateCount()">Update Count</button>
+
+
+<hr>
+<hr>
+
+<h1>Session 13 - computed signals and normal signals</h1>
+
+<h3>height : {{height}}</h3>
+<h3>width : {{width}}</h3>
+<h3>area : {{area}}</h3>
+<button (click)="updateHeight()">Update Height</button>
+
+<br />
+
+<h3>heightSignal : {{heightSignal()}}</h3>
+<h3>widthSignal : {{widthSignal()}}</h3>
+<h3>areaSignal : {{areaSignal()}}</h3>
+<button (click)="updateHeightSignal()">Update Height Signal</button>
+
+
+<hr>
+<hr>
+
+<h1>Session 14 - Effects and Signals</h1>
+
+<h2>Normal property binding</h2>
+<h3 [style.color]="color">Speed : {{speed()}}</h3>
+<button (click)="increaseSpeed()">Increase Speed</button>
+
+<br />
+
+<h2>Signal binding</h2>
+<h3 [style.color]="colorSignal()">Speed : {{speed()}}</h3>
+<button (click)="increaseSpeed()">Increase Speed</button>
+
+<br />
+
+<h3>{{fruit()}}</h3>
+<button (click)="changeFruit()">Change Fruit</button>
+
+<hr>
+<hr>
+
+<h1>Session 15 - Signal and Value data types</h1>
+
+<h3>{{data2()}}</h3>
+<button (click)="updateData2()">Update Data2</button>
+
+<h3>{{speed2()}}</h3>
+
+<br />
+
+<h3>{{users()}}</h3>
+<button (click)="updateUsers()">Update User List</button>
+
+<hr>
+<hr>
+
+<h1>Session 16.1 - Counter App Using Signal</h1>
+
+<div class="counter-card">
+  <h2>Counter App</h2>
+  <div class="count">
+    {{val()}}
+  </div>
+  <div class="buttons">
+    <button (click)="increaseVal()">+</button>
+    <button (click)="resetVal()">Reset</button>
+    <button (click)="decreaseVal()">-</button>
+  </div>
+</div>
+
+<hr >
+<hr >
+
+<h1>Session 16.2 - get and set the value using signals</h1>
+
+<h3>{{name()}}</h3>
+<input type="text" [value]="name()" (input)="setValue($event.target.value)">
+<button (click)="resetClicked()">Default Name</button>
+

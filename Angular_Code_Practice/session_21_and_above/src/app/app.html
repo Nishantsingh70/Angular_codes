@@ -1,0 +1,283 @@
+<h1>Session 21 - Two way data binding using signals and properties with ngModel</h1>
+<h3>Signal value is {{ name() }}</h3>
+<input type="text" [value]="name()" (input)="name.set($event.target.value)" />
+
+<br />
+
+<h3>Property value is {{ age }}</h3>
+<!-- <input type="text" [value]="age" (input)="age=30">          we can't do like this with normal properties.  -->
+
+<!-- <input type="text" [(ngModel)]="age"> -->
+<!-- or -->
+<input type="text" [ngModel]="age" (ngModelChange)="age = $event" />
+
+<br />
+
+<h3>{{ userDetail().name }}</h3>
+<input type="text" [value]="userDetail().name" (input)="updateUser('name', $event.target.value)" />
+<br />
+
+<h3>{{ userDetail().age }}</h3>
+<input type="text" [value]="userDetail().age" (input)="updateUser('age', $event.target.value)" />
+
+<br />
+
+<h3>{{ userDetail().email }}</h3>
+<input
+  type="text"
+  [value]="userDetail().email"
+  (input)="updateUser('email', $event.target.value)"
+/>
+
+<br />
+<hr />
+<hr />
+
+<h1>
+  Session 22 - Two way data binding in signals with ngModel by using setter and getter methods
+</h1>
+<br />
+
+<h3>UserName is {{ userName() }}</h3>
+<h3>uName is {{ uName }}</h3>
+<input type="text" [(ngModel)]="uName" />
+<br />
+<input type="text" [ngModel]="uName" (ngModelChange)="uName = $event" />
+
+<br />
+<br />
+
+<h3>Student College Name is {{ studentCollegeName }}</h3>
+<input type="text" [(ngModel)]="studentCollegeName" />
+<br />
+<input type="text" [ngModel]="studentCollegeName" (ngModelChange)="studentCollegeName = $event" />
+
+<br />
+
+<h3>Student Email is {{ studentEmail }}</h3>
+<input type="text" [(ngModel)]="studentEmail" />
+<br />
+<input type="text" [ngModel]="studentEmail" (ngModelChange)="studentEmail = $event" />
+
+<br />
+<hr />
+<hr />
+
+<h1>Session 23 - Create TODO List mini project by using signals</h1>
+<br />
+
+<h3>Selected Todo item is {{ selectedTodo() }}</h3>
+<input
+  type="text"
+  placeholder="Enter new todo"
+  [value]="newTodo()"
+  (input)="newTodo.set($event.target.value)"
+/>
+<button (click)="addTodo()">Add TODO</button>
+
+<ul>
+  @for (todo of todoList(); track todo.id) {
+    <li class="task-list">
+      <span>{{ $index + 1 }}</span>
+      <span>
+        @if (todo.completed) {
+          <del>{{ todo.title }}</del>
+        } @else {
+          {{ todo.title }}
+        }
+      </span>
+      <span>
+        <button (click)="selectedTodo.set(todo.title)">Select</button>
+        <button (click)="deleteTodo(todo.id)">Delete</button>
+        <button (click)="completeTodo(todo.id)">Complete</button>
+      </span>
+    </li>
+  } @empty {
+    <h4>No Task Found</h4>
+  }
+</ul>
+
+<br />
+<hr />
+<hr />
+
+<h1>
+  Session 24 - Directives - component, Attribute - ngStyle and Structural - ngIf, ngFor, ngSwitch
+</h1>
+<br />
+
+<h3 *ngIf="isLogin()">Welcome User</h3>
+
+<div>
+  <ul *ngFor="let user of users()">
+    <li>{{ user }}</li>
+  </ul>
+</div>
+
+<p [ngStyle]="{ color: pColor() }">Hello Visitors</p>
+
+<br />
+<hr />
+<hr />
+
+<h1>Session 25 - Structural Directives - ngIf, ngFor, ngSwitch</h1>
+<br />
+
+<h3>*ngFor Directive in Angular</h3>
+<div>
+  <li *ngFor="let student of students()">{{ student }}</li>
+</div>
+
+<br />
+
+<div *ngFor="let student of studentDetails()">
+  <h3>{{ student.name }} - {{ student.age }} - {{ student.email }}</h3>
+  <ol>
+    <li *ngFor="let subject of student.subjects">{{ subject }}</li>
+  </ol>
+</div>
+
+<h3>*ngIf Directive in Angular</h3>
+
+<h3>If example</h3>
+<h3 *ngIf="show()">*ngIf example</h3>
+
+<br />
+
+<h3>If and else example</h3>
+
+<div *ngIf="login(); else elseBlock">
+  <a href="/">Logout</a>
+</div>
+<ng-template #elseBlock>
+  <a href="/">Login</a>
+</ng-template>
+
+<br />
+
+<h3>Nested If</h3>
+
+<div *ngIf="block() == 0">
+  <h3>Heading {{ block() }}</h3>
+</div>
+<div *ngIf="block() == 1">
+  <h3>Heading {{ block() }}</h3>
+</div>
+<div *ngIf="block() == 2">
+  <h3>Heading {{ block() }}</h3>
+</div>
+<div *ngIf="block() == 3">
+  <h3>Heading {{ block() }}</h3>
+</div>
+<button (click)="updateBlock()">Change Block</button>
+
+<br />
+
+<h3>*ngSwitch Directive in Angular</h3>
+<br />
+
+<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('green')">Green</button>
+<button (click)="changeColor('yellow')">Yellow</button>
+<button (click)="changeColor('blue')">Blue</button>
+<button (click)="changeColor('pink')">Pink</button>
+<div [ngSwitch]="color()">
+  <h5 *ngSwitchCase="'red'" style="background-color: red">Red</h5>
+  <h5 *ngSwitchCase="'green'" style="background-color: green">Green</h5>
+  <h5 *ngSwitchCase="'yellow'" style="background-color: yellow">Yellow</h5>
+  <h5 *ngSwitchCase="'blue'" style="background-color: blue">Blue</h5>
+  <h5 *ngSwitchCase="'pink'" style="background-color: pink">Pink</h5>
+  <h5 *ngSwitchDefault>No Match Case</h5>
+</div>
+
+<br />
+<hr />
+<hr />
+
+<h1>Session 26 - Create inline component & full component without using CLI</h1>
+<br />
+
+<app-footer></app-footer>
+
+<br />
+<hr />
+<hr />
+
+<h1>Session 27 - Create inline component & full component using CLI</h1>
+<br />
+
+@for (x of nums(); track x) {
+  <app-search-box></app-search-box>
+}
+
+<br />
+
+<app-inline-template-box></app-inline-template-box>
+<br />
+<app-inline-style-box></app-inline-style-box>
+
+<br />
+<hr />
+<hr />
+
+<h1>
+  Session 28 - Passing data from parent to child component, apply loop on child with data and button
+  click event
+</h1>
+<br />
+
+<h3>{{ clientName() }}</h3>
+<app-child [name]="clientName()"></app-child>
+<app-child [name]="'Anil'"></app-child>
+<app-child [name]="'Peter'"></app-child>
+
+<br />
+
+<h3>Passing data to child component in loop</h3>
+
+<input
+  type="text"
+  placeholder="Enter new User"
+  [value]="newUser()"
+  (input)="newUser.set($event.target.value)"
+/>
+<button (click)="AddUser()">Add New User</button>
+@for (name of clientNames(); track name) {
+  <app-child [name]="name"></app-child>
+}
+
+<br />
+<hr />
+<hr />
+
+<h1>
+  Session 29 - Passing data from child to parent component, call parent function by child function
+</h1>
+<br />
+
+<h3>Selected Name is {{ selectHeroName() }}</h3>
+<input
+  type="text"
+  placeholder="Enter new User"
+  [value]="newHero()"
+  (input)="newHero.set($event.target.value)"
+/>
+<button (click)="AddNewHero()">Add New User</button>
+@for (name of heroNames(); track name) {
+  <app-child2
+    [userName]="name"
+    (selectHero)="selectedHeroName($event)"
+    (deleteHero)="deletedHeroName($event)"
+  ></app-child2>
+}
+
+
+<h1>
+  Session 30 - Global and common state, service, share data between two components
+</h1>
+
+<br />
+
+<app-display-count></app-display-count>
+<br />
+<app-control-count></app-control-count>

@@ -1,0 +1,39 @@
+<!-- Session 47 - Services, Dependency Injection, reusable code, productService -->
+
+<h2> Session 47 - Services, Dependency Injection, reusable code, productService</h2>
+
+<button (click)="loadData()">Load Data</button>
+
+<ul class="list">
+  @for(product of productDetails(); track product.id){
+    <li>Id : {{ product?.id }}</li>
+    <li>Name : {{ product?.name }}</li>
+    <li>Age : {{ product?.age }}</li>
+  }
+</ul>
+
+
+
+
+<!-- ========= Session 49 - Services, Dependency Injection, get method calling, products, Dummy json Products API ======= -->
+
+<!-- ========= Session 50 - Interface, interface vs types, interface merge and extend =========== -->
+<!-- We can merge and extend the interface also but in case of type it is not possible. -->
+
+<h2>Session 49 & 50 - Services, Dependency Injection, get method calling, products, Dummy json Products API</h2>
+
+<h3>Product List - Dummy json Products Get API</h3>
+
+<ul>
+  @for(product of productList(); track product.id){
+    <li>{{product.title}}</li>
+  }
+</ul>
+
+
+
+
+<!-- ========= Session 51 - Dynamically create pages, Dynamic route to API data, Product list and product detail component, products service =========== -->
+
+<router-outlet></router-outlet>
+

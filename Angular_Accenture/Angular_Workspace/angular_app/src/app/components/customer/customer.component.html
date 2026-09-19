@@ -1,0 +1,48 @@
+<h1>Customer Component Data</h1>
+<button (click)="getAllCustomers()">Show All Customers</button>
+
+<br />
+<br />
+<table border="1" cellPadding="1">
+    <caption>Customers Detail</caption>
+    <thead>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Customer Contact</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cust of customerList">
+            <td><a [routerLink]="['/customers', cust.cid]">{{cust.cid}}</a></td>
+            <td>{{cust.cname}}</td>
+            <td>{{cust.ccontact}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<br />
+
+<router-outlet></router-outlet> <!-- Created child route -->
+
+<hr />
+<hr />
+
+<button (click)="getUsersFromAPI()">Show All Users</button>
+
+<br />
+<br />
+<table border="1" cellPadding="1">
+    <caption>Users Detail</caption>
+    <thead>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>User Email</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </tbody>
+</table>

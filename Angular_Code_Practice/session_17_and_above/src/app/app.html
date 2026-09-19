@@ -1,0 +1,148 @@
+<h1>Session 17 - Styling in Angular</h1>
+
+<h1 class="heading"> <button class="btn btn-primary">Login </button> Styling in Angular</h1>
+<app-user-data></app-user-data>
+<app-admin-data></app-admin-data>
+
+<div style="border: 2px solid green">
+    Mid Area
+</div>
+
+<h2 class="heading2">Testing</h2>
+
+
+<hr>
+<hr>
+
+<h1>Session 18 - If, else if, else - conditional statements</h1>
+
+<div>
+    @if(isLogin()){
+        <span>Welcome User</span> 
+        <br>
+        <button (click)="handleLogin(false)">Logout</button>
+    }
+    @else{
+        <span>Please Login</span>
+        <br>
+        <button (click)="handleLogin(true)">Login</button>
+    }
+</div>
+
+<br>
+<br>
+
+<h3>Toggle button</h3>
+
+<p>option 1</p>
+
+@if(show()){
+    <button (click)="toggle()">Hide</button>
+} @else {
+    <button (click)="toggle()">Show</button>
+}
+
+<p>option 2</p>
+
+@if(show()){
+    <button (click)="show.set(false)">Hide</button>
+} @else {
+    <button (click)="show.set(true)">Show</button>
+}
+
+<br>
+<br>
+
+<p>Check Status</p>
+
+<select (change)="handleStatus($event)">
+    <option value="notStarted">Not Started</option>
+    <option value="progress">In Progress</option>
+    <option value="success">Success</option>
+    <option value="error">Error</option>
+</select>
+<br>
+<br>
+@if(status() == 'notStarted'){
+    <span>No Status</span>
+}
+@else if(status() == 'progress'){
+    <span style="color:orange">In Progress</span>
+}
+@else if(status() == 'success'){
+    <span style="color:green">Success</span>
+}
+@else if(status() == 'error'){
+    <span style="color:red">Error</span>
+}
+@else {
+    <span>Other</span>
+}
+
+<hr>
+<hr>
+
+<h1>Session 19 - for loop, array iteration - conditional statements</h1>
+
+<div>
+    <ul>
+        @for(user of users(); track user){ 
+            <li>{{user}}</li>
+        }
+    </ul>
+
+    <br>
+    <br>
+
+    <ul>
+        @for(user of userDetails(); track user.id){
+            <li [style.backgroundColor]="$odd? 'grey': 'white'">
+                <span>
+                    {{$index+1}} 
+                    - {{user.id}} - {{user.name}} - {{user.email}} 
+                    @if($first){<span style="color:red"><b>Admin</b></span>}
+                    @if($last){<span style="color:orange"><b>User</b></span>}
+                    @if($odd){<span style="color: red"><b>Odd line</b></span>}
+                    @if($even){<span style="color: green;"><b>Even line</b></span>}
+                </span>
+                <br>
+                <span>
+                    @if($count == $index+1){
+                        <span><b>Total Users :</b> {{$count}}</span>}
+               </span>
+            </li>
+        }
+    </ul>
+</div>
+
+
+<hr>
+<hr>
+
+<h1>Session 20 - Switch case, multiple conditions - conditional statements</h1>
+
+<select (change)="handleSwitchstatus($event)">
+    <option value="notStarted">Not Started</option>
+    <option value="progress">In Progress</option>
+    <option value="success">Success</option>
+    <option value="error">Error</option>
+</select>
+<br>
+<br>
+@switch(status2()){
+    @case('notStarted'){
+        <span style="color: gray">Not Started</span>
+    }
+    @case('progress'){
+        <span style="color: orange;">In Progress</span>
+    }
+    @case('success'){
+        <span style="color: green;">Success</span>
+    }
+    @case('error'){
+        <span style="color:red">Error</span>
+    }
+    @default {
+        <span>Other</span>
+    }
+}
